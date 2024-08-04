@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>יוצר כרטיס ביקור דיגיטלי</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            direction: rtl;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 90%;
+            max-width: 600px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            color: #666;
+        }
+        input, select {
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #businessCard {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        #businessCard h2 {
+            margin: 0;
+            color: #333;
+        }
+        #businessCard p {
+            margin: 5px 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>יוצר כרטיס ביקור דיגיטלי</h1>
+        <form id="businessCardForm">
+            <label for="name">שם מלא:</label>
+            <input type="text" id="name" required>
+            
+            <label for="title">תפקיד:</label>
+            <input type="text" id="title">
+            
+            <label for="company">חברה:</label>
+            <input type="text" id="company">
+            
+            <label for="phone">טלפון:</label>
+            <input type="tel" id="phone">
+            
+            <label for="email">אימייל:</label>
+            <input type="email" id="email">
+            
+            <label for="website">אתר אינטרנט:</label>
+            <input type="url" id="website">
+            
+            <label for="color">צבע רקע:</label>
+            <select id="color">
+                <option value="#ffffff">לבן</option>
+                <option value="#f0f0f0">אפור בהיר</option>
+                <option value="#e6f3ff">כחול בהיר</option>
+                <option value="#fff0e6">כתום בהיר</option>
+            </select>
+            
+            <button type="submit">צור כרטיס ביקור</button>
+        </form>
+        
+        <div id="businessCard"></div>
+        <button id="downloadBtn" style="display: none;">הורד כתמונה</button>
+    </div>
+
+    <script>
+        document.getElementById('businessCardForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const card = document.getElementById('businessCard');
+            const color = document.getElementById('color').value;
+            card.style.backgroundColor = color;
+            card.innerHTML = `
+                <h2>${document.getElementById('name').value}</h2>
+                <p>${document.getElementById('title').value}</p>
+                <p>${document.getElementById('company').value}</p>
+                <p>טלפון: ${document.getElementById('phone').value}</p>
+                <p>אימייל: ${document.getElementById('email').value}</p>
+                <p>אתר: ${document.getElementById('website').value}</p>
+            `;
+            document.getElementById('downloadBtn').style.display = 'block';
+        });
+
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            html2canvas(document.getElementById('businessCard')).then(function(canvas) {
+                const link = document.createElement('a');
+                link.download = 'כרטיס_ביקור.png';
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        });
+    </script>
+</body>
+</html>
