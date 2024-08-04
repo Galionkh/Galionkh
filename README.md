@@ -1,0 +1,7 @@
+- 👋 Hi, I’m @Galionkh
+- 👀 I’m interested in artificial intelligence, machine learning, and data science.
+- 🌱 I’m currently learning about the psychological dimensions in education and society.
+- 💞️ I’m looking to collaborate on AI projects and educational initiatives.
+- 📫 How to reach me: You can reach me via email at khader@example.com
+- 😄 Pronouns: He/Him
+- ⚡ Fun fact: I can speak and understand Hebrew!
