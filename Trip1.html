@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدليل المعرفي الشامل للقدس - المدرسة الأهلية أم الفحم</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'jerusalem-gold': '#d4af37',
+                        'jerusalem-stone': '#f2eecb',
+                        'islamic-green': '#1a5d48',
+                        'deep-blue': '#1e293b',
+                        'paper-bg': '#fdfbf7',
+                    },
+                    fontFamily: {
+                        'cairo': ['Cairo', 'sans-serif'],
+                        'amiri': ['Amiri', 'serif'],
+                    },
+                    boxShadow: {
+                        'paper': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0,0,0,0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            line-height: 1.8;
+        }
+        .chapter-title {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a5d48;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 800;
+        }
+        .chapter-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60px;
+            height: 4px;
+            background-color: #d4af37;
+            border-radius: 2px;
+        }
+        .info-box {
+            background-color: #fdfbf7;
+            border-right: 4px solid #d4af37;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .narrative-text {
+            font-family: 'Amiri', serif;
+            font-size: 1.15rem;
+            color: #2d3748;
+        }
+        .highlight-term {
+            color: #b45309;
+            font-weight: bold;
+        }
+        @media print {
+            body { background-color: white; }
+            .container { max-width: 100%; width: 100%; margin: 0; padding: 0; }
+            .no-print { display: none; }
+            .page-break { page-break-before: always; }
+        }
+    </style>
+</head>
+<body class="pb-12">
+
+    <!-- Header Section -->
+    <header class="bg-islamic-green text-white py-12 border-b-8 border-jerusalem-gold shadow-lg">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex flex-col items-center justify-center mb-6">
+                <i class="fas fa-school text-5xl text-jerusalem-gold mb-4"></i>
+                <h1 class="text-3xl md:text-5xl font-bold mb-2">المدرسة الأهلية - أم الفحم</h1>
+                <div class="h-1 w-32 bg-jerusalem-gold my-4 rounded"></div>
+                <h2 class="text-xl md:text-3xl font-semibold text-gray-100">الدليل المعرفي الشامل لجولة القدس والأقصى</h2>
+            </div>
+            <div class="bg-white/10 inline-block px-8 py-3 rounded-full backdrop-blur-sm border border-white/20">
+                <p class="text-jerusalem-stone font-amiri text-xl">توثيق كامل لمضامين جولة الدكتور المؤرخ إيهاب الجلاد</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Controls -->
+    <div class="container mx-auto px-4 mt-8 mb-4 no-print flex justify-end">
+        <button onclick="window.print()" class="bg-deep-blue hover:bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg transition duration-300 flex items-center gap-3">
+            <i class="fas fa-print"></i> <span>طباعة الوثيقة الكاملة</span>
+        </button>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="container mx-auto px-4 max-w-5xl">
+
+        <!-- Introduction Section -->
+        <section class="bg-white rounded-2xl shadow-paper p-8 md:p-12 mb-8">
+            <div class="flex items-start gap-6">
+                <div class="hidden md:block bg-gray-100 p-4 rounded-full">
+                    <i class="fas fa-book-open text-3xl text-islamic-green"></i>
+                </div>
+                <div>
+                    <h3 class="chapter-title text-2xl">مقدمة: فلسفة التوثيق والتعليم</h3>
+                    <div class="narrative-text">
+                        <p class="mb-4">
+                            يستهل الدكتور إيهاب الجلاد جولته بقاعدة ذهبية للمعلمين والطلاب على حد سواء: <span class="highlight-term">"العلم صيد والكتابة قيد"</span>. إن الذاكرة البشرية، مهما كانت قوية، معرضة للنسيان والتشويش، خاصة في مدينة غنية بالتفاصيل كالقدس. لذا، فإن التدوين ليس مجرد توثيق، بل هو عملية "تثبيت" للمعرفة.
+                        </p>
+                        <p class="mb-4">
+                            <strong>المنهجية التربوية (التدرج):</strong> يطرح الدكتور منهجية هامة في تعليم تاريخ القدس للطلاب، مشبهاً إياها بعملية <span class="highlight-term">"إطعام الطفل"</span>. لا يمكن أن نبدأ مع الطالب (أو المتلقي غير المختص) بالمعلومات السياسية المعقدة أو التاريخ الجدلي العميق (اللحمة) مباشرة، بل يجب البدء بالأساسيات الملموسة والمشاهدات البصرية (الحليب والمهلبية). التدرج يبني قاعدة معرفية صلبة تحمي الطالب لاحقاً من الشبهات أو التشوش.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 1: Geography -->
+        <section class="bg-white rounded-2xl shadow-paper p-8 md:p-12 mb-8">
+            <h3 class="chapter-title text-3xl"><i class="fas fa-map-marked-alt ml-3"></i>الفصل الأول: جغرافية القدس وتحصيناتها</h3>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bold text-xl mb-3 text-deep-blue">1. هندسة المدينة والأبواب</h4>
+                    <div class="narrative-text">
+                        <p class="mb-4">
+                            تأخذ البلدة القديمة شكلاً هندسياً أقرب للمربع. ويحتوي سورها على سبعة أبواب مفتوحة حالياً، تنقسم هندسياً إلى نوعين:
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 mr-4 mb-4">
+                            <li><strong>أبواب رئيسية (4):</strong> تتميز بوجود <span class="highlight-term">"الباشورة"</span>، وهي المدخل المنكسر (زاوية 90 درجة) الذي يمنع دخول الخيول أو الجيوش المقتحمة بسرعة، مما يكشفهم للمدافعين.</li>
+                            <li><strong>أبواب ثانوية (3):</strong> وهي مجرد فتحات مباشرة في السور دون انكسار دفاعي.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-amber-50 p-6 rounded-xl border border-amber-100">
+                    <h4 class="font-bold text-lg mb-3 text-amber-900 border-b border-amber-200 pb-2">كيف نحفظ ترتيب الأبواب؟</h4>
+                    <p class="text-gray-700 mb-4">قدم الدكتور عبارة قصصية لترسيخ التوزيع الجغرافي للأبواب في أذهان المعلمين والطلاب:</p>
+                    <p class="text-xl font-amiri font-bold text-center text-amber-800 leading-relaxed">
+                        "الأسباط كانوا سهرانين عند العمود، الجديد اللي في الخليل، عشان يزوروا النبي داود بعد المغرب"
+                    </p>
+                    <div class="mt-4 text-sm text-amber-900 space-y-1">
+                        <p><strong>الشمال:</strong> الأسباط، الساهرة، العمود.</p>
+                        <p><strong>الغرب:</strong> الجديد، الخليل.</p>
+                        <p><strong>الجنوب:</strong> النبي داود، المغاربة.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="narrative-text border-t pt-6">
+                <h4 class="font-bold text-xl mb-3 text-deep-blue">2. الخلط الشائع: باب الأسباط</h4>
+                <p class="mb-4">
+                    نبه الدكتور إلى خطأ شائع يقع فيه الكثيرون بالخلط بين بابين يحملان نفس الاسم:
+                    <br>
+                    <strong>الأول:</strong> باب الأسباط الخاص بالمسجد الأقصى (باب داخلي).
+                    <br>
+                    <strong>الثاني:</strong> باب الأسباط الخاص بسور المدينة (خارجي). واسمه التاريخي الدقيق هو <span class="highlight-term">"باب ستي مريم"</span>، نظراً لقربه من الكنيسة التي يُعتقد أنها مكان مولد السيدة مريم. ولكن التداول الشعبي عمم اسم "الأسباط" عليه.
+                </p>
+
+                <h4 class="font-bold text-xl mb-3 text-deep-blue mt-6">3. نظرية "الضعف الشمالي" وتصحيح مسار الفتوحات</h4>
+                <p>
+                    جغرافياً، القدس محصنة طبيعياً بوديان عميقة من ثلاث جهات (القدرون شرقاً، والربابة جنوباً وغرباً). الجهة الوحيدة المفتوحة والمتصلة بالجبال هي <strong>الجهة الشمالية</strong>.
+                </p>
+                <p>
+                    لذلك، تركزت التحصينات العسكرية تاريخياً في الشمال (كثرة الأبواب، الخندق المحفور). ومن هذه النقطة، يُصحح الدكتور معلومة تاريخية مغلوطة: <strong>سيدنا عمر بن الخطاب لم يدخل القدس من جبل المكبر (الجنوب)</strong> كما هو شائع في الدراما، بل جاء من دمشق (الشمال) ودخل المدينة من جهة باب العمود، وهي نقطة الدخول الرسمية والعسكرية للمدينة.
+                </p>
+            </div>
+        </section>
+
+        <!-- Chapter 2: Stratigraphy -->
+        <section class="bg-white rounded-2xl shadow-paper p-8 md:p-12 mb-8">
+            <h3 class="chapter-title text-3xl"><i class="fas fa-layer-group ml-3"></i>الفصل الثاني: طبقات التاريخ (القدس تنتقل)</h3>
+            <div class="narrative-text">
+                <p class="mb-6">
+                    من الأخطاء الشائعة الظن بأن القدس كانت دائماً في مكانها الحالي. شرح الدكتور أن المدينة انتقلت "جغرافياً" عبر الزمن، ويمكن تقسيمها إلى ثلاث طبقات مكانية:
+                </p>
+                
+                <div class="space-y-6">
+                    <div class="flex">
+                        <div class="shrink-0 w-12 h-12 bg-islamic-green text-white rounded-full flex items-center justify-center font-bold text-xl">1</div>
+                        <div class="mr-6">
+                            <h5 class="font-bold text-lg">القدس الأولى (اليبوسية/الكنعانية) - قبل 5000 سنة</h5>
+                            <p>لم تكن داخل الأسوار الحالية، بل كانت في الأسفل جنوباً عند <span class="highlight-term">"سلوان"</span>. السبب؟ الماء. المدن القديمة كانت تنشأ حيث يوجد الماء، وهناك توجد "عين سلوان" (أو عين مريم).</p>
+                        </div>
+                    </div>
+
+                    <div class="flex">
+                        <div class="shrink-0 w-12 h-12 bg-islamic-green text-white rounded-full flex items-center justify-center font-bold text-xl">2</div>
+                        <div class="mr-6">
+                            <h5 class="font-bold text-lg">القدس الثانية (القديمة الحالية) - قبل 2000 سنة</h5>
+                            <p>بدأت مع العهد الروماني وما تلاه. حيث تطورت تقنيات جر المياه (قنوات) وتخزينها (آبار)، مما سمح للمدينة بالصعود للأعلى، للمنطقة الجبلية المحصنة (البلدة القديمة الحالية).</p>
+                        </div>
+                    </div>
+
+                    <div class="flex">
+                        <div class="shrink-0 w-12 h-12 bg-islamic-green text-white rounded-full flex items-center justify-center font-bold text-xl">3</div>
+                        <div class="mr-6">
+                            <h5 class="font-bold text-lg">القدس الثالثة (الجديدة) - قبل 150 سنة</h5>
+                            <p>وهي الامتداد العمراني الحديث خارج الأسوار الذي بدأ في أواخر العهد العثماني.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 3: Walls and Columns -->
+        <section class="bg-white rounded-2xl shadow-paper p-8 md:p-12 mb-8">
+            <h3 class="chapter-title text-3xl"><i class="fas fa-archway ml-3"></i>الفصل الثالث: قراءة الحجارة (باب العمود)</h3>
+            <div class="narrative-text">
+                <p class="mb-4">
+                    يُعتبر باب العمود "متحفاً مفتوحاً" لقراءة تاريخ المدينة من خلال حجارته. السور الحالي بناه السلطان العثماني <span class="highlight-term">سليمان القانوني</span> عام 1540م، ولكن الموقع أقدم بكثير.
+                </p>
+                
+                <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-deep-blue my-6">
+                    <h4 class="font-bold text-xl text-deep-blue mb-2">كيف تقرأ واجهة باب العمود؟</h4>
+                    <p class="mb-2">يمكنك رؤية التاريخ بشكل طبقي عمودي:</p>
+                    <ol class="list-decimal list-inside space-y-2">
+                        <li><strong>الطبقة السفلية (الأساسات):</strong> حجارة ضخمة تعود للفترة الرومانية (عهد الإمبراطور هادريان 132م). في هذه الفترة، دمر الرومان القدس وبنوا مدينة وثنية سموها "إيليا كابتولينا".</li>
+                        <li><strong>الطبقة الوسطى:</strong> إضافات وترميمات من العهد الأيوبي.</li>
+                        <li><strong>الطبقة العلوية والزخارف:</strong> البناء العثماني المميز وزخارفه.</li>
+                    </ol>
+                </div>
+
+                <h4 class="font-bold text-xl text-deep-blue mb-2">لماذا سمي "باب العمود"؟</h4>
+                <p class="mb-4">
+                    نسبةً إلى "عمود نصر" روماني كان يوضع في الساحة الداخلية للباب، وكان يُستخدم كنقطة قياس للمسافات (كيلو صفر) للمدن الأخرى. ومن هنا جاء الاسم العربي. بينما الاسم الروماني كان يهدف لطمس اسم "القدس" أو "بيت المقدس"، إلا أن المسلمين حافظوا على الاسم الأصلي للمدينة وتجاهلوا "إيليا" مع الزمن.
+                </p>
+
+                <h4 class="font-bold text-xl text-deep-blue mb-2">التقنيات الدفاعية العثمانية</h4>
+                <p>
+                    استعرض الدكتور تفاصيل معمارية دقيقة في الباب:
+                    <br>
+                    <strong>المزاغل:</strong> فتحات ضيقة تتسع من الداخل وتضيق من الخارج، تسمح للرامي برؤية العدو وضربه بالسهام دون أن يُصاب.
+                    <br>
+                    <strong>المساقط (السقاطات):</strong> فتحات في أرضية الشرفات فوق الباب مباشرة، كانت تستخدم لصب الزيت المغلي أو المواد الحارقة على الجنود الذين يحاولون كسر البوابة أو إحراقها.
+                </p>
+            </div>
+        </section>
+
+        <!-- Chapter 4: Economy & Society -->
+        <section class="bg-white rounded-2xl shadow-paper p-8 md:p-12 mb-8 page-break">
+            <h3 class="chapter-title text-3xl"><i class="fas fa-users ml-3"></i>الفصل الرابع: النسيج الاجتماعي والاقتصادي</h3>
+            <div class="narrative-text">
+                
+                <h4 class="font-bold text-xl text-deep-blue mb-3">1. خرافة "الأحياء الأربعة"</h4>
+                <p class="mb-6">
+                    يرفض الدكتور إيهاب بشدة المصطلح الاستشراقي/الاستعماري الذي يقسم القدس إلى "أربعة أرباع" (إسلامي، مسيحي، أرمني، يهودي).
+                    <br>
+                    <strong>الحقيقة التاريخية:</strong> المدينة كانت مقسمة إلى "حارات" (Neighborhoods) متداخلة ومتشابكة، تُسمى غالباً بأسماء العائلات الساكنة فيها (حارة السعدية، حارة الحسيني) أو الحرف والمهن (حارة الحدادين، سوق الدباغة). التقسيم الطائفي الصارم هو دخيل على بنية المدينة العربية الإسلامية التي كانت تستوعب الجميع ضمن نسيج واحد.
+                </p>
+
+                <h4 class="font-bold text-xl text-deep-blue mb-3">2. الاقتصاد المقاوم</h4>
+                <p class="mb-6">
+                    تطرق الدكتور إلى <span class="highlight-term">"سوق خان الزيت"</span>، الشريان الرئيسي للبلدة القديمة. سُمي بهذا الاسم لأنه كان يضم خاناً ضخماً تتجمع فيه جرار الزيت القادمة من قرى القدس ونابلس للتصدير أو البيع.
+                    <br>
+                    وأشار إلى نقطة جوهرية معاصرة: <strong>اقتصاد القدس اليوم يعتمد بشكل وجودي على الفلسطينيين من الداخل المحتل (عرب 48).</strong> بعد تراجع السياحة الأجنبية والتضييق، أصبح المتسوق القادم من الجليل والمثلث والنقب هو "الرئة" التي تتنفس منها أسواق القدس وتمنع إغلاق المحلات وتهويدها.
+                </p>
+            </div>
+        </section>
+
+        <!-- Chapter 5: Salah al-Din's Strategy -->
+        <section class="bg-white rounded-2xl shadow-paper p-8 md:p-12 mb-8">
+            <h3 class="chapter-title text-3xl"><i class="fas fa-chess-knight ml-3"></i>الفصل الخامس: الذكاء الاستراتيجي لصلاح الدين (الخانقاه)</h3>
+            
+            <div class="narrative-text">
+                <p class="mb-4">
+                    عندما حرر صلاح الدين الأيوبي القدس، لم ينتقم بتدمير الكنائس كما فعل الصليبيون بالمساجد، لكنه تصرف بذكاء استراتيجي وعسكري فذ.
+                </p>
+
+                <div class="bg-islamic-green/5 p-6 rounded-xl border-r-4 border-islamic-green mb-6">
+                    <h4 class="font-bold text-lg text-islamic-green mb-2">الخانقاه الصلاحية: عين على القيامة</h4>
+                    <p>
+                        اختار صلاح الدين مقر "بطريرك الصليبيين" الملاصق تماماً لكنيسة القيامة، وحوله إلى <span class="highlight-term">"خانقاه"</span> (مكان انقطاع وعبادة للمتصوفة).
+                        <br>
+                        <strong>لماذا هذا الموقع؟</strong>
+                    </p>
+                    <ul class="list-disc list-inside mt-2 space-y-2">
+                        <li><strong>المراقبة العسكرية:</strong> ليكون المجاهدون والمتصوفة في قلب الحي المسيحي، يراقبون أي تحرك مشبوه أو محاولة لإعادة التآمر الصليبي من داخل الكنيسة.</li>
+                        <li><strong>السيادة الصوتية:</strong> لضمان أن يُرفع الأذان ويُسمع التوحيد بجوار أجراس الكنيسة مباشرة، تأكيداً على هوية المدينة الإسلامية.</li>
+                    </ul>
+                </div>
+
+                <h4 class="font-bold text-xl text-deep-blue mb-3">مسجد الحيات (خرافة لغرض نبيل)</h4>
+                <p class="mb-4">
+                    بجوار كنيسة القيامة يوجد مسجد صغير يُسمى "مسجد الحيات". ذكر الدكتور أن القصص الشعبية القديمة كانت تقول أن من ينام فيه لا تلدغه الأفاعي (طلسم)، أو أن الحيات تخرج لتدافع عنه. يفسر الدكتور هذه الأساطير بأنها كانت وسيلة شعبية ذكية لتشجيع الناس على "الرباط" والنوم في هذا المسجد المعزول والموحش ليلاً، لضمان عدم استيلاء الرهبان أو غيرهم عليه.
+                </p>
+            </div>
+        </section>
+
+        <!-- Chapter 6: Corrections -->
+        <section class="bg-white rounded-2xl shadow-paper p-8 md:p-12 mb-8">
+            <h3 class="chapter-title text-3xl"><i class="fas fa-scroll ml-3"></i>الفصل السادس: تصحيح السردية التاريخية</h3>
+            
+            <div class="space-y-6 narrative-text">
+                <div>
+                    <h4 class="font-bold text-xl text-red-800 mb-2"><i class="fas fa-times-circle ml-2"></i>حول العهدة العمرية</h4>
+                    <p>
+                        شدد الدكتور على ضرورة الحذر من النسخ المتداولة للعهدة العمرية. النسخة الطويلة والمفصلة جداً مشكوك في صحتها تاريخياً.
+                        <br>
+                        <strong>التصحيح:</strong> العهدة الأصلية كانت نصاً موجزاً يضمن الأمان. وما يُشاع عن نص "ولا يسكن بإيلياء معهم أحد من اليهود" هو محل نقاش، فالثابت تاريخياً أن سيدنا عمر <strong>سمح</strong> لسبعين عائلة يهودية (من طبريا) بالعودة والسكن في القدس بعد أن كان الرومان قد طردوهم منها تماماً لقرون. هذا يدل على التسامح الإسلامي وليس العكس.
+                    </p>
+                </div>
+
+                <div class="border-t border-gray-200 pt-6">
+                    <h4 class="font-bold text-xl text-red-800 mb-2"><i class="fas fa-times-circle ml-2"></i>صلاح الدين والمقدسات المسيحية</h4>
+                    <p>
+                        هناك خلط بين استعادة المساجد واحترام الكنائس. صلاح الدين:
+                        <br>
+                        1. <strong>أعاد المساجد:</strong> مثل المسجد الأقصى وقبة الصخرة التي حولها الصليبيون إلى كنائس واسطبلات.
+                        <br>
+                        2. <strong>احترم الكنائس الأصلية:</strong> مثل كنيسة القيامة، وتركها للمسيحيين الشرقيين.
+                        <br>
+                        3. <strong>استعاد الإضافات:</strong> المباني التي استحدثها الصليبيون (ولم تكن كنائس أصلية) حولها لمرافق عامة ومدارس إسلامية (مثل المدرسة الصلاحية التي كانت كنيسة سانت آن).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <footer class="mt-12 text-center p-8 bg-deep-blue text-white rounded-t-3xl">
+            <i class="fas fa-quote-right text-3xl text-jerusalem-gold mb-4 block"></i>
+            <p class="text-xl md:text-2xl font-amiri leading-loose max-w-4xl mx-auto">
+                "إن القدس لا تموت، لكنها قد تمرض. وزيارتكم، ووقوفكم أمام دكاكينها، وشرائكم لكعكها، وتدريسكم لتاريخها الحقيقي، هو الدواء الذي يبقي قلب هذه المدينة ينبض بالعربية والإسلام. المعرفة هي خط الدفاع الأول."
+            </p>
+            <div class="mt-8 text-sm text-gray-400">
+                توثيق خاص لاستكمال معلمي المدرسة الأهلية - أم الفحم
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+</html>
+
