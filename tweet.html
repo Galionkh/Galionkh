@@ -41,6 +41,20 @@ body {
   font-family: var(--ar);
   min-height: 100vh;
   line-height: 1.6;
+  
+  /* منع تحديد النصوص في كامل الصفحة لحماية المحتوى */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* السماح بتحديد النصوص فقط داخل حقول الإدخال ونتيجة الكود */
+input, select, textarea, .code-txt {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 /* ── TOPBAR ── */
@@ -543,9 +557,28 @@ footer {
 .ft-brand { font-size: 14px; font-weight: 800; color: #94a3b8; }
 .ft-brand span { color: #fff; }
 .ft-note  { font-size: 12px; color: #64748b; font-family: var(--mono); }
+
+/* رسالة تنبيه عند محاولة فتح أدوات المطور أو النسخ */
+#security-alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ef4444;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  z-index: 9999;
+  display: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  font-size: 14px;
+}
 </style>
 </head>
 <body>
+
+<div id="security-alert">غير مسموح بنسخ المحتوى أو فتح أدوات المطور!</div>
 
 <!-- TOPBAR -->
 <header class="topbar">
@@ -736,6 +769,53 @@ footer {
 </footer>
 
 <script>
+// --- كود الحماية (منع السرقة) --- //
+function showSecurityAlert() {
+  const alert = document.getElementById('security-alert');
+  alert.style.display = 'block';
+  setTimeout(() => { alert.style.display = 'none'; }, 2000);
+}
+
+// 1. تعطيل الزر الأيمن (Right Click)
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+  showSecurityAlert();
+});
+
+// 2. تعطيل أزرار الكيبورد الخاصة بالمطورين ونسخ الصفحة
+document.addEventListener('keydown', function(e) {
+  // F12
+  if (e.key === 'F12' || e.keyCode === 123) {
+    e.preventDefault();
+    showSecurityAlert();
+  }
+  
+  // Ctrl+Shift+I (فتح أدوات المطور)
+  if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.keyCode === 73)) {
+    e.preventDefault();
+    showSecurityAlert();
+  }
+  
+  // Ctrl+Shift+J (فتح الكونسول)
+  if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j' || e.keyCode === 74)) {
+    e.preventDefault();
+    showSecurityAlert();
+  }
+  
+  // Ctrl+U (عرض مصدر الصفحة View Source)
+  if (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.keyCode === 85)) {
+    e.preventDefault();
+    showSecurityAlert();
+  }
+  
+  // Ctrl+S (حفظ الصفحة)
+  if (e.ctrlKey && (e.key === 'S' || e.key === 's' || e.keyCode === 83)) {
+    e.preventDefault();
+    showSecurityAlert();
+  }
+});
+// ------------------------------ //
+
 // تحديث الأرقام المعروضة في شريط التمرير
 function upd(id, v) {
   document.getElementById(id).textContent = Number(v).toLocaleString('en');
@@ -851,13 +931,12 @@ function tog(hdr) {
   hdr.parentElement.classList.toggle('open'); 
 }
 
-// دالة النسخ المتوافقة مع المتصفحات (بدون استخدام navigator.clipboard)
+// دالة النسخ المتوافقة مع المتصفحات
 function cp(id, btn) {
   const text = document.getElementById(id).textContent;
   const textArea = document.createElement("textarea");
   textArea.value = text;
   
-  // إخفاء الـ textarea من العرض
   textArea.style.position = "fixed";
   textArea.style.left = "-9999px";
   textArea.style.top = "0";
@@ -892,4 +971,5 @@ upd('vRep',   document.getElementById('rRep').value);
 
 </body>
 </html>
+
 
