@@ -1,202 +1,895 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>GPT-5 اعداد خضر غليون </title>
-  <meta name="description" content="أذكى وأسرع نماذج OpenAI حتى الآن – تفكير مدمج، قدرة أعلى على الترميز، كتابة أكثر تعبيرًا، وإجابات أدق في الصحة والعمل." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
-  <style>
-    :root{
-      --bg:#0f1115; --card:#141822; --muted:#aab1c5; --text:#eef1f6; --brand:#85ffe0; --brand2:#a38bff;
-      --btn:#1f2533; --accent:#13d2b8;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0c0f14 0%,#0f1115 100%);color:var(--text);font-family:Tajawal,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
-    a{color:var(--brand);text-decoration:none}
-    .wrap{max-width:1160px;margin:auto;padding:24px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 0}
-    header nav{display:flex;gap:18px;flex-wrap:wrap}
-    header a{color:#cfe5ff;opacity:.9}
-    header .logo{font-weight:800;letter-spacing:.4px;background:linear-gradient(90deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;padding:40px 0}
-    .hero h1{font-size:48px;line-height:1.1;margin:0 0 10px}
-    .hero p{font-size:18px;color:var(--muted)}
-    .cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
-    .btn{background:var(--accent);color:#0c0f14;padding:12px 18px;border-radius:10px;font-weight:700}
-    .btn.alt{background:var(--btn);color:#e6ebff;border:1px solid #2b3244}
-    .card{background:linear-gradient(180deg,#121725 0%,#111621 100%);border:1px solid #252a3a;border-radius:16px;padding:24px}
-    h2{font-size:32px;margin:0 0 16px}
-    h3{font-size:22px;margin:22px 0 8px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    .muted{color:var(--muted)}
-    .tag{display:inline-block;padding:6px 10px;background:#1a2130;border:1px solid #2b3347;border-radius:999px;color:#cfe5ff;font-size:12px;margin:0 6px 6px 0}
-    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .price{background:#101521;border:1px solid #242c42;border-radius:14px;padding:18px}
-    .price h4{margin:0 0 10px}
-    .footer{margin-top:40px;padding:32px 0;color:#b9c3da;border-top:1px solid #242c42}
-    .callout{border:1px dashed #2b3244;border-radius:12px;padding:14px;background:#0e141f}
-    img{max-width:100%;border-radius:12px;border:1px solid #242c42;background:#0e121a}
-    @media (max-width:980px){.hero{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr}.pricing{grid-template-columns:1fr}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>صيّاد التغريدات</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:      #f4f6f8;
+  --bg2:     #eef0f4;
+  --card:    #ffffff;
+  --ink:     #0f172a;
+  --ink2:    #334155;
+  --muted:   #64748b;
+  --border:  #e2e8f0;
+  --accent:  #2563eb;
+  --acc-hover:#1d4ed8;
+  --acc-bg:  #eff6ff;
+  --acc-bdr: #bfdbfe;
+  --red:     #dc2626;
+  --red-bg:  #fef2f2;
+  --green:   #16a34a;
+  --grn-bg:  #f0fdf4;
+  --amber:   #d97706;
+  --amb-bg:  #fffbeb;
+  --mono:    'JetBrains Mono', monospace;
+  --ar:      'Tajawal', sans-serif;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --radius-lg: 16px;
+  --radius-md: 12px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--ar);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ── TOPBAR ── */
+.topbar {
+  background: var(--ink);
+  padding: 0 32px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-md);
+}
+
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.brand-dot {
+  width: 10px; height: 10px;
+  background: #3b82f6;
+  border-radius: 50%;
+  animation: blink 2s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+.topbar-credit {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  font-family: var(--mono);
+}
+
+.topbar-credit span { color: rgba(255,255,255,0.9); font-weight: 600; }
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(to bottom, var(--ink), #1e293b);
+  padding: 60px 24px 70px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(37, 99, 235, 0.25) 0%, transparent 80%);
+  pointer-events: none;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(59,130,246,0.15);
+  border: 1px solid rgba(59,130,246,0.3);
+  color: #93c5fd;
+  font-size: 12px;
+  font-family: var(--mono);
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(4px);
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: #60a5fa;
+  position: relative;
+}
+
+.hero-sub {
+  font-size: 16px;
+  color: #cbd5e1;
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* ── STATS ROW ── */
+.stats-row {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-top: 48px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 32px;
+}
+
+.stat {
+  flex: 1;
+  max-width: 160px;
+  text-align: center;
+  padding: 0 16px;
+  border-left: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat:last-child { border-left: none; }
+
+.stat-n {
+  font-size: 32px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 6px;
+  font-family: var(--mono);
+}
+
+.stat-l { font-size: 12px; color: #94a3b8; font-weight: 500; }
+
+/* ── MAIN LAYOUT ── */
+.main {
+  max-width: 1000px;
+  margin: -30px auto 80px;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 24px;
+  align-items: start;
+  position: relative;
+  z-index: 10;
+}
+
+@media (max-width: 800px) {
+  .main { grid-template-columns: 1fr; margin-top: 20px; }
+  .hero h1 { font-size: 36px; }
+  .stats-row { display: none; }
+  .hero { padding: 40px 20px 50px; }
+}
+
+/* ── PANEL ── */
+.panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.3s ease;
+}
+
+.panel:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.panel-head {
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fafbfc;
+}
+
+.panel-head-icon {
+  width: 36px; height: 36px;
+  background: var(--acc-bg);
+  color: var(--accent);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.panel-title { font-size: 15px; font-weight: 800; color: var(--ink); }
+.panel-sub   { font-size: 12px; color: var(--muted); font-weight: 500; }
+
+.panel-body { padding: 24px; }
+
+/* ── FIELDS ── */
+.fld { margin-bottom: 20px; }
+
+.fld label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink2);
+  margin-bottom: 10px;
+}
+
+.fld label .lv {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+  background: var(--acc-bg);
+  border: 1px solid var(--acc-bdr);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.fld select, .fld input[type="text"] {
+  width: 100%;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-family: var(--ar);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  outline: none;
+  transition: all 0.2s ease;
+  appearance: none;
+}
+
+.fld select:focus, .fld input[type="text"]:focus {
+  border-color: var(--accent);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.sel-wrap { position: relative; }
+.sel-wrap::after {
+  content: '▾';
+  position: absolute;
+  left: 14px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font-size: 14px;
+  pointer-events: none;
+}
+
+/* ── RANGE ── */
+input[type="range"] {
+  width: 100%;
+  -webkit-appearance: none;
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  outline: none;
+  direction: ltr;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px; height: 20px;
+  background: var(--accent);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: transform 0.1s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.fdiv { height: 1px; background: var(--border); margin: 24px 0; }
+
+/* ── BUILD BUTTON ── */
+.btn-build {
+  width: 100%;
+  padding: 16px 20px;
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-family: var(--ar);
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-build:hover {
+  background: var(--acc-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+/* ── RESULTS ── */
+#results { display: none; }
+
+/* ── QUERY CARD ── */
+.qcard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  animation: popIn 0.3s ease forwards;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.2s ease;
+}
+
+.qcard:hover { 
+  border-color: #cbd5e1;
+}
+
+@keyframes popIn { to { opacity:1; transform:translateY(0); } }
+
+.qcard-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+  user-select: none;
+  background: #fff;
+  transition: background 0.2s;
+}
+
+.qcard-head:hover { background: #f8fafc; }
+
+.qcard-n {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  min-width: 24px;
+  font-weight: 700;
+  background: var(--bg2);
+  padding: 4px 8px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.qcard-label {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.qtag {
+  font-size: 10px;
+  font-weight: 800;
+  font-family: var(--mono);
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.t-live { background: var(--red-bg);  color: var(--red);    border: 1px solid #fecaca; }
+.t-top  { background: var(--acc-bg);  color: var(--accent);  border: 1px solid var(--acc-bdr); }
+.t-adv  { background: var(--grn-bg);  color: var(--green);   border: 1px solid #bbf7d0; }
+
+.qcard-arrow { color: var(--muted); font-size: 14px; transition: transform 0.3s ease; flex-shrink: 0; }
+.qcard.open .qcard-arrow { transform: rotate(180deg); }
+
+.qcard-body { display: none; padding: 0 20px 20px; border-top: 1px solid var(--border); background: #fafbfc; }
+.qcard.open .qcard-body { display: block; animation: fadeIn 0.3s ease; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.qdesc { font-size: 13px; color: var(--muted); line-height: 1.8; padding: 16px 0; }
+.qdesc strong { color: var(--ink); font-weight: 800; }
+
+.code-row {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  direction: ltr;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.code-txt {
+  flex: 1;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--accent);
+  word-break: break-all;
+  line-height: 1.6;
+}
+
+.btn-cp {
+  background: var(--ink);
+  border: none;
+  color: #fff;
+  font-family: var(--ar);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.btn-cp:hover { background: var(--ink2); }
+.btn-cp.ok { background: var(--green); }
+
+.qnote {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--muted);
+  font-family: var(--ar);
+  font-weight: 600;
+  direction: rtl;
+  text-align: left;
+}
+
+/* ── HINT ── */
+.hint {
+  background: var(--acc-bg);
+  border: 1px solid var(--acc-bdr);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  font-size: 14px;
+  color: #1e40af;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.hint strong { font-weight: 800; }
+
+/* ── RIGHT COL ── */
+.right-col { display: flex; flex-direction: column; gap: 24px; }
+
+/* ── EMPTY ── */
+.empty { text-align: center; padding: 60px 20px; color: var(--muted); }
+.empty-icon { font-size: 48px; margin-bottom: 16px; opacity: 0.5; }
+.empty-txt  { font-size: 15px; line-height: 1.8; font-weight: 500; }
+
+/* ── OPERATORS ── */
+.op-tbl { width: 100%; border-collapse: collapse; text-align: right; }
+.op-tbl tr { border-bottom: 1px solid var(--border); }
+.op-tbl tr:last-child { border-bottom: none; }
+.op-tbl tr:hover td { background: #f8fafc; }
+.op-tbl td { padding: 12px; font-size: 13px; vertical-align: middle; line-height: 1.6; }
+.op-tbl td:first-child {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+  width: 1%;
+  padding-right: 0;
+}
+.op-tbl td:last-child { color: var(--ink2); }
+
+/* ── TIPS ── */
+.tip-list { display: flex; flex-direction: column; gap: 16px; }
+
+.tip { display: flex; gap: 14px; align-items: flex-start; }
+
+.tip-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.tip-title { font-size: 14px; font-weight: 800; color: var(--ink); margin-bottom: 4px; }
+.tip-body  { font-size: 13px; color: var(--muted); line-height: 1.7; }
+.tip-body strong { color: var(--ink); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  padding: 30px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: auto;
+}
+
+.ft-brand { font-size: 14px; font-weight: 800; color: #94a3b8; }
+.ft-brand span { color: #fff; }
+.ft-note  { font-size: 12px; color: #64748b; font-family: var(--mono); }
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo">GPT-5</div>
-      <nav aria-label="التنقل">
-        <a href="#chatgpt">ChatGPT</a>
-        <a href="#dev">للمطورين</a>
-        <a href="#biz">للأعمال</a>
-        <a href="#start">البدء</a>
-      </nav>
-    </header>
 
-    <!-- بطل الصفحة -->
-    <section class="hero" id="top">
-      <div>
-        <div class="tag">تحديثات الصيف من OpenAI</div>
-        <h1>GPT-5 وصل</h1>
-        <p>أذكى وأسرع وأكثر النماذج فائدة حتى الآن—مع التفكير العميق مدمجًا. متاح للجميع عبر ChatGPT وواجهات البرمجة.</p>
-        <div class="cta">
-          <a class="btn" href="https://chatgpt.com" target="_blank" rel="noopener">جرّبه على ChatGPT</a>
-          <a class="btn alt" href="https://openai.com/research" target="_blank" rel="noopener">اقرأ الأبحاث</a>
-          <a class="btn alt" href="#dev">للمطورين</a>
-          <a class="btn alt" href="#biz">للأعمال</a>
-        </div>
-    </section>
-
-    <!-- ذكاء خبير للجميع -->
-    <section id="chatgpt" class="card">
-      <h2>مقدم من خضر غليون</h2>
-      <p class="muted">يرتقي GPT-5 بجودة الإجابات عبر مجالات مثل الرياضيات والعلوم والتمويل والقانون وغيرها—وكأنه فريق خبراء تحت الطلب لأي مهمة.  [oai_citation:2‡OpenAI](https://openai.com/gpt-5/)</p>
-
-      <div class="grid-3">
-        <div>
-          <h3>أفضل استجابة في كل مرة</h3>
-          <p>صُمّم ChatGPT ليفكّر بعمق عندما تحتاج ذلك، ويختار تلقائيًا متى يطيل التفكير للوصول إلى نتيجة أدق.  [oai_citation:3‡OpenAI](https://openai.com/gpt-5/)</p>
-        </div>
-        <div>
-          <h3>متميز في البرمجة</h3>
-          <p>يتعامل GPT-5 مع مهام الترميز المعقّدة من البداية للنهاية: إنتاج واجهات أمامية قابلة للاستخدام، تحسين التصميم، وتصحيح الأخطاء بفاعلية أعلى.  [oai_citation:4‡OpenAI](https://openai.com/gpt-5/)</p>
-        </div>
-        <div>
-          <h3>شريك كتابة مُعبِّر</h3>
-          <p>يساعدك على صياغة رسائل أوضح وأقوى—من القصص والخطب إلى المستندات المهنية.  [oai_citation:5‡OpenAI](https://openai.com/gpt-5/)</p>
-        </div>
-      </div>
-
-      <div class="grid-3" style="margin-top:10px">
-        <div>
-          <h3>إجابات صحية أنفع</h3>
-          <p>أدق نموذج لنا حتى الآن في الأسئلة الصحية: يقدّم إرشادات أوضح، ويعمل كشريك تفكير استباقي—مع الاستشهاد بالمصادر عند الاقتضاء.  [oai_citation:6‡OpenAI](https://openai.com/gpt-5/)</p>
-        </div>
-        <div>
-          <h3>أكثر أمانًا ودقة</h3>
-          <p>أقل ميلاً للاختلاق وأكثر التزامًا بالحقائق، مع تحسينات واضحة في الموثوقية.  [oai_citation:7‡OpenAI](https://openai.com/gpt-5/)</p>
-        </div>
-        <div class="callout">
-          <strong>ميزات جديدة في ChatGPT:</strong>
-          <ul>
-            <li><b>خصص تجربتك:</b> اختيار شخصية ولون للمحادثات.  [oai_citation:8‡OpenAI](https://openai.com/gpt-5/)</li>
-            <li><b>تحسينات الصوت:</b> فهم أدق لتعليماتك وتخصيص أسلوب الإلقاء.  [oai_citation:9‡OpenAI](https://openai.com/gpt-5/)</li>
-            <li><b>وضع الدراسة:</b> تعلّم مخصص خطوة بخطوة لأي موضوع.  [oai_citation:10‡OpenAI](https://openai.com/gpt-5/)</li>
-            <li><b>وصل Gmail وGoogle Calendar:</b> ردود مخصّصة بالاعتماد على بريدك وتقويمك (التفاصيل في مركز المساعدة).  [oai_citation:11‡OpenAI](https://openai.com/gpt-5/)</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card" style="margin-top:16px">
-        <h3>الطريق إلى GPT-5</h3>
-        <p class="muted">استكشف تطوّر نماذجنا في ChatGPT وخطوات الوصول إلى GPT-5. <a href="https://progress.openai.com" target="_blank" rel="noopener">اطّلع على السجلّ</a>.  [oai_citation:12‡OpenAI](https://openai.com/gpt-5/)</p>
-      </div>
-    </section>
-
-    <!-- للمطورين -->
-    <section id="dev" class="card" style="margin-top:24px">
-      <h2>أقوى نموذج للترميز والمهام العاملية (Agentic)</h2>
-      <p class="muted">ينتج GPT-5 شيفرة عالية الجودة، وينشئ واجهات أمامية من تلميحات موجزة، ويحسّن الشخصية والقيادية (Steerability) وينفّذ سلاسل أدوات طويلة. يقدّم كذلك <b>تفكيرًا “محدودًا”</b> (minimal reasoning) ومعامل <b>الثرثرة</b> (verbosity) في الـ API.  [oai_citation:13‡OpenAI](https://openai.com/gpt-5/)</p>
-
-      <div class="pricing">
-        <div class="price">
-          <h4>GPT-5</h4>
-          <p>نص + رؤية • سياق 400K • حد مخرجات 128K</p>
-          <p><b>السعر (لكل مليون رمز):</b> إدخال <b>$1.25</b> — إخراج <b>$10.00</b>.  [oai_citation:14‡OpenAI](https://openai.com/gpt-5/)</p>
-        </div>
-        <div class="price">
-          <h4>GPT-5 mini</h4>
-          <p>نص + رؤية • سياق 400K • حد مخرجات 128K</p>
-          <p><b>السعر (لكل مليون رمز):</b> إدخال <b>$0.25</b> — إخراج <b>$2.00</b>.  [oai_citation:15‡OpenAI](https://openai.com/gpt-5/)</p>
-        </div>
-        <div class="price">
-          <h4>GPT-5 nano</h4>
-          <p>نص + رؤية • سياق 400K • حد مخرجات 128K</p>
-          <p><b>السعر (لكل مليون رمز):</b> إدخال <b>$0.05</b> — إخراج <b>$0.40</b>.  [oai_citation:16‡OpenAI](https://openai.com/gpt-5/)</p>
-        </div>
-      </div>
-
-      <div class="grid-2" style="margin-top:14px">
-        <div class="callout">
-          <p><b>ابدأ البناء الآن:</b> راجع التوثيق وجرّب النماذج عبر منصة OpenAI. <a href="https://platform.openai.com" target="_blank" rel="noopener">بدء الاستخدام</a>.  [oai_citation:17‡OpenAI](https://openai.com/gpt-5/)</p>
-        </div>
-        <div>
-          <p>اطّلع على مدونة المنصّة لمزيد من التفاصيل التقنية والتحديثات.  [oai_citation:18‡OpenAI](https://openai.com/gpt-5/)</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- للأعمال -->
-    <section id="biz" class="card" style="margin-top:24px">
-      <h2>أفضل نموذج للعمل والفرق</h2>
-      <p class="muted">أذكى وأكثر موثوقية، ومصمَّم للمهام التي تعتمد عليها فرق الأعمال يوميًا—من كتابة وبحث وتحليل وحلّ مشكلات وترميز.  [oai_citation:19‡OpenAI](https://openai.com/gpt-5/)</p>
-
-      <div class="grid-3">
-        <div>
-          <h3>خبير بالمادة</h3>
-          <p>يشعر تعاونك معه وكأنك تعمل مع زميل ذكي ومتأنٍ—بجودة مهنية أعلى ودقّة أفضل. <br/><span class="muted">اطّلع على دليل تعظيم الاستفادة من GPT-5 للفرق.</span>  [oai_citation:20‡OpenAI](https://openai.com/gpt-5/)</p>
-        </div>
-        <div>
-          <h3>كل موظف = مستخدم محترف</h3>
-          <p>يفكّر ChatGPT بعمق في المهام المعقّدة، ويطرح أسئلة متابعة ملائمة لإبقاء العمل متقدّمًا—دون الحاجة للتبديل بين نماذج متعددة.  [oai_citation:21‡OpenAI](https://openai.com/gpt-5/)</p>
-        </div>
-        <div>
-          <h3>أذكى مع سياق شركتك</h3>
-          <p>يستفيد من ملفات شركتك وتطبيقاتك المتصلة مثل Google Drive وSharePoint وغيرها، مع احترام الأذونات القائمة. <br/>
-          <span class="tag">متاح الآن في ChatGPT Team</span>
-          <span class="tag">قريبًا في Enterprise وEdu في 14 أغسطس 2025</span>  [oai_citation:22‡OpenAI](https://openai.com/gpt-5/)</p>
-        </div>
-      </div>
-
-      <div class="cta" style="margin-top:10px">
-        <a class="btn" href="https://chatgpt.com" target="_blank" rel="noopener">جرّبه الآن</a>
-        <a class="btn alt" href="https://openai.com/contact-sales" target="_blank" rel="noopener">تواصل مع المبيعات</a>
-      </div>
-    </section>
-
-    <!-- البدء -->
-    <section id="start" class="card" style="margin-top:24px">
-      <h2>البدء مع GPT-5</h2>
-      <p>يمكنك البدء فورًا عبر ChatGPT لاستخدام قدرات GPT-5 في المحادثة، أو عبر منصة OpenAI لدمجه في تطبيقاتك وخدماتك.</p>
-      <div class="cta">
-        <a class="btn" href="https://chatgpt.com" target="_blank" rel="noopener">ابدأ الآن</a>
-        <a class="btn alt" href="https://platform.openai.com" target="_blank" rel="noopener">منصة المطوّرين</a>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="grid-2">
-        <div>
-          <p><strong>إخلاء مسؤولية:</strong> هذه صفحة عربية غير رسمية أُعدّت لتقديم محتوى صفحة GPT-5 بالعربية لسهولة القراءة، مع إعادة صياغة المحتوى دون الإخلال بالمضمون.</p>
-          <p class="muted">المصدر: صفحة <a href="https://openai.com/gpt-5/" target="_blank" rel="noopener">GPT-5 على موقع OpenAI</a>.  [oai_citation:23‡OpenAI](https://openai.com/gpt-5/)</p>
-        </div>
-        <div>
-          <p>© 2025. هذه النسخة العربية لأغراض العرض فقط. جميع العلامات مملوكة لخضر غليون OpenAI.</p>
-        </div>
-      </div>
-    </footer>
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="topbar-brand">
+    <div class="brand-dot"></div>
+    صيّاد التغريدات
   </div>
+  <div class="topbar-credit">تطوير <span>خَضر غَليون</span></div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag"><span>●</span> أداة بناء البحث المتقدم في X</div>
+  <h1>اصطد التغريدة<br><em>قبل الجميع</em></h1>
+  <p class="hero-sub">قم ببناء أوامر البحث المتقدمة لتكون أول المعلقين. التعليق المبكر على تغريدة منتشرة يجلب لك آلاف المشاهدات.</p>
+  <div class="stats-row">
+    <div class="stat"><div class="stat-n">8</div><div class="stat-l">أوامر بحث جاهزة</div></div>
+    <div class="stat"><div class="stat-n">20+</div><div class="stat-l">مشغّل بحث متقدم</div></div>
+    <div class="stat"><div class="stat-n">10</div><div class="stat-l">لغات مدعومة للتصفية</div></div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- LEFT -->
+  <div>
+    <div class="panel">
+      <div class="panel-head">
+        <div class="panel-head-icon">🎛️</div>
+        <div>
+          <div class="panel-title">إعدادات البحث</div>
+          <div class="panel-sub">خصص المعايير ثم اضغط بناء الأوامر</div>
+        </div>
+      </div>
+      <div class="panel-body">
+
+        <div class="fld">
+          <label>اللغة المستهدفة</label>
+          <div class="sel-wrap">
+            <select id="lang">
+              <option value="ja">🇯🇵 يابانية</option>
+              <option value="ko">🇰🇷 كورية</option>
+              <option value="en">🇺🇸 إنجليزية</option>
+              <option value="ar">🇸🇦 عربية</option>
+              <option value="es">🇪🇸 إسبانية</option>
+              <option value="pt">🇧🇷 برتغالية</option>
+              <option value="tr">🇹🇷 تركية</option>
+              <option value="fr">🇫🇷 فرنسية</option>
+              <option value="id">🇮🇩 إندونيسية</option>
+              <option value="th">🇹🇭 تايلاندية</option>
+              <option value="">🌍 جميع اللغات</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="fld">
+          <label>
+            الحد الأدنى للإعجابات (Likes)
+            <span class="lv" id="vLikes">5,000</span>
+          </label>
+          <input type="range" id="rLikes" min="500" max="50000" step="500" value="5000"
+            oninput="upd('vLikes',this.value)">
+        </div>
+
+        <div class="fld">
+          <label>
+            الحد الأدنى لإعادة النشر (Retweets)
+            <span class="lv" id="vRT">1,000</span>
+          </label>
+          <input type="range" id="rRT" min="100" max="20000" step="100" value="1000"
+            oninput="upd('vRT',this.value)">
+        </div>
+
+        <div class="fld">
+          <label>
+            الحد الأدنى للردود (Replies)
+            <span class="lv" id="vRep">200</span>
+          </label>
+          <input type="range" id="rRep" min="50" max="5000" step="50" value="200"
+            oninput="upd('vRep',this.value)">
+        </div>
+
+        <div class="fdiv"></div>
+
+        <div class="fld">
+          <label>كلمة مفتاحية (اختياري)</label>
+          <input type="text" id="kw" placeholder="مثال: تقنية / رياضة / AI">
+        </div>
+
+        <div class="fld">
+          <label>استثناء كلمة (اختياري)</label>
+          <input type="text" id="excl" placeholder="مثال: إعلان / سبام / ad">
+        </div>
+
+        <button class="btn-build" onclick="build()">🎣 ابدأ بناء الأوامر</button>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:24px">
+      <div class="panel-head">
+        <div class="panel-head-icon" style="background:#fffbeb; color:#d97706;">⚡</div>
+        <div>
+          <div class="panel-title">نصائح هامة</div>
+          <div class="panel-sub">استراتيجيات لزيادة المشاهدات</div>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="tip-list">
+          <div class="tip">
+            <div class="tip-icon" style="background:#fef3c7">⏱️</div>
+            <div>
+              <div class="tip-title">الوقت الذهبي</div>
+              <div class="tip-body">اكتب تعليقك خلال أول <strong>30 دقيقة</strong>. خوارزمية المنصة تبرز التعليقات الأولى لكل من يرى التغريدة لاحقاً.</div>
+            </div>
+          </div>
+          <div class="tip">
+            <div class="tip-icon" style="background:#eff6ff">💬</div>
+            <div>
+              <div class="tip-title">اسأل ولا تكتفِ بالمدح</div>
+              <div class="tip-body">التعليق بـ <strong>سؤال ذكي</strong> يجذب الردود مما يضاعف مشاهداتك. كلمة "رائع" وحدها لا تكفي.</div>
+            </div>
+          </div>
+          <div class="tip">
+            <div class="tip-icon" style="background:#f0fdf4">⏰</div>
+            <div>
+              <div class="tip-title">أوقات الذروة</div>
+              <div class="tip-body">استهدف أوقات نشاط الجمهور المستهدف. في اليابان مثلاً: <strong>21:00–01:00</strong> بتوقيتهم هو الأقوى.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right-col">
+
+    <div id="results">
+      <div class="hint">
+        <span>📋</span>
+        <div>
+          <strong>طريقة الاستخدام:</strong> انسخ أي أمر تريده ← افتح صفحة <strong>x.com/search</strong> ← الصق الأمر في مربع البحث ← اختر تبويب <strong>Latest (الأحدث)</strong> لترى التغريدات الجديدة فوراً.
+        </div>
+      </div>
+      <div id="qList"></div>
+    </div>
+
+    <div id="emptyState" class="panel">
+      <div class="empty">
+        <div class="empty-icon">🎯</div>
+        <div class="empty-txt">قم بضبط الإعدادات في القائمة الجانبية<br>ثم اضغط على "ابدأ بناء الأوامر"<br>لتظهر لك النتائج هنا.</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <div class="panel-head-icon" style="background:#f3e8ff; color:#9333ea;">📖</div>
+        <div>
+          <div class="panel-title">دليل أوامر البحث</div>
+          <div class="panel-sub">شرح مبسط لأهم المشغلات (Operators)</div>
+        </div>
+      </div>
+      <div class="panel-body" style="padding-top:12px; overflow-x: auto;">
+        <table class="op-tbl">
+          <tr><td>min_faves:N</td><td>عدد الإعجابات N أو أكثر (أهم مؤشر للانتشار).</td></tr>
+          <tr><td>min_retweets:N</td><td>عدد مرات إعادة النشر N أو أكثر.</td></tr>
+          <tr><td>min_replies:N</td><td>عدد الردود N أو أكثر (يدل على نقاش نشط).</td></tr>
+          <tr><td>lang:XX</td><td>تحديد لغة التغريدة (ar, en, ja...).</td></tr>
+          <tr><td>-filter:replies</td><td>إظهار التغريدات الأصلية فقط (استبعاد الردود).</td></tr>
+          <tr><td>filter:blue_verified</td><td>تغريدات من حسابات مشتركة في X Premium.</td></tr>
+          <tr><td>filter:verified</td><td>تغريدات من حسابات موثقة.</td></tr>
+          <tr><td>filter:media</td><td>تغريدات تحتوي على صور أو فيديو.</td></tr>
+          <tr><td>filter:links</td><td>تغريدات تحتوي على روابط خارجية.</td></tr>
+          <tr><td>-filter:links</td><td>تغريدات نصية خالصة (بدون روابط).</td></tr>
+          <tr><td>"عبارة محددة"</td><td>البحث عن مطابقة تامة للعبارة المكتوبة.</td></tr>
+          <tr><td>-كلمة</td><td>استبعاد أي تغريدة تحتوي على هذه الكلمة.</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="ft-brand">🎯 صيّاد التغريدات <span>× خَضر غَليون</span></div>
+  <div class="ft-note">الإصدار 3.1 — بناء أوامر البحث المتقدم</div>
+</footer>
+
+<script>
+// تحديث الأرقام المعروضة في شريط التمرير
+function upd(id, v) {
+  document.getElementById(id).textContent = Number(v).toLocaleString('en');
+}
+
+function fmtN(v) { return Number(v).toLocaleString('en'); }
+
+// بناء الأوامر
+function build() {
+  const lang  = document.getElementById('lang').value;
+  const likes = +document.getElementById('rLikes').value;
+  const rt    = +document.getElementById('rRT').value;
+  const rep   = +document.getElementById('rRep').value;
+  const kw    = document.getElementById('kw').value.trim();
+  const excl  = document.getElementById('excl').value.trim();
+
+  const lStr = lang ? ` lang:${lang}` : '';
+  const kStr = kw   ? ` ${kw}`        : '';
+  const eStr = excl ? ` -${excl}`     : '';
+
+  const queries = [
+    {
+      label: 'أعلى إعجابات — تغريدات أصلية',
+      tag: 'مباشر', tc: 't-live',
+      q: `min_faves:${likes}${lStr}${kStr} -filter:replies${eStr}`,
+      desc: `تغريدات حصلت على <strong>${fmtN(likes)}+ إعجاب</strong> بدون ردود. تعتبر أفضل فرصة للتعليق المبكر.`,
+      note: '← ابحث في قسم الأحدث (Latest)'
+    },
+    {
+      label: 'أعلى إعادة نشر — انتشار سريع',
+      tag: 'مباشر', tc: 't-live',
+      q: `min_retweets:${rt}${lStr}${kStr} -filter:replies${eStr}`,
+      desc: `تمت إعادة نشرها <strong>${fmtN(rt)}+ مرة</strong>. إعادة النشر العالية تعني انتشاراً سريعاً وجمهوراً أوسع.`,
+      note: '← ابحث في قسم الأحدث (Latest)'
+    },
+    {
+      label: 'نقاش نشط — أعلى ردود',
+      tag: 'مباشر', tc: 't-live',
+      q: `min_replies:${rep}${lStr}${kStr}${eStr}`,
+      desc: `تحتوي على <strong>${fmtN(rep)}+ ردّ</strong>. تعليقك هنا سيشاهده عدد كبير من المتفاعلين.`,
+      note: '← ابحث في قسم الأحدث (Latest)'
+    },
+    {
+      label: 'حسابات مميزة — مصداقية عالية',
+      tag: 'مميز', tc: 't-top',
+      q: `min_faves:${Math.round(likes*0.6)} filter:blue_verified${lStr}${kStr}${eStr}`,
+      desc: `حسابات X Premium بـ <strong>${fmtN(Math.round(likes*0.6))}+ إعجاب</strong>. التعليق على حساب كبير يضاعف من ظهورك.`,
+      note: '← ابحث في الأبرز (Top) أو الأحدث (Latest)'
+    },
+    {
+      label: 'محتوى مرئي — فيديو وصور',
+      tag: 'مباشر', tc: 't-live',
+      q: `min_faves:${Math.round(likes*0.5)} filter:media${lStr}${kStr}${eStr}`,
+      desc: `تغريدات مرئية بـ <strong>${fmtN(Math.round(likes*0.5))}+ إعجاب</strong>. المحتوى المرئي يجذب التفاعل بشكل مضاعف.`,
+      note: '← ابحث في قسم الأحدث (Latest)'
+    },
+    {
+      label: 'نصوص خالصة — بدون روابط',
+      tag: 'مباشر', tc: 't-live',
+      q: `min_faves:${likes} -filter:links -filter:replies${lStr}${kStr}${eStr}`,
+      desc: `نصوص فقط بـ <strong>${fmtN(likes)}+ إعجاب</strong>. التغريدات النصية الخالصة غالباً ما تحظى بتفاعل نوعي.`,
+      note: '← ابحث في قسم الأحدث (Latest)'
+    },
+    {
+      label: 'مزيج قوي — إعجابات + إعادة نشر',
+      tag: 'متقدم', tc: 't-adv',
+      q: `min_faves:${likes} min_retweets:${Math.round(rt*0.5)}${lStr}${kStr} -filter:replies${eStr}`,
+      desc: `<strong>${fmtN(likes)}+ إعجاب</strong> و <strong>${fmtN(Math.round(rt*0.5))}+ إعادة نشر</strong> في نفس الوقت.`,
+      note: '← ابحث في قسم الأحدث (Latest)'
+    },
+    {
+      label: 'بحث شامل — جميع المعايير',
+      tag: 'متقدم', tc: 't-adv',
+      q: `min_faves:${likes} min_retweets:${Math.round(rt*0.3)} min_replies:${Math.round(rep*0.3)}${lStr}${kStr}${eStr}`,
+      desc: `يجمع بين الإعجابات، إعادة النشر، والردود. لاصطياد التغريدات التي حققت انتشاراً من جميع الجوانب.`,
+      note: '← ابحث في الأبرز (Top) أو الأحدث (Latest)'
+    }
+  ];
+
+  const list = document.getElementById('qList');
+  list.innerHTML = '';
+
+  queries.forEach((q, i) => {
+    const d = document.createElement('div');
+    d.className = 'qcard';
+    d.style.animationDelay = (i * 40) + 'ms';
+    d.innerHTML = `
+      <div class="qcard-head" onclick="tog(this)">
+        <span class="qcard-n">${String(i+1).padStart(2,'0')}</span>
+        <span class="qcard-label">${q.label}</span>
+        <span class="qtag ${q.tc}">${q.tag}</span>
+        <span class="qcard-arrow">▾</span>
+      </div>
+      <div class="qcard-body">
+        <div class="qdesc">${q.desc}</div>
+        <div class="code-row">
+          <span class="code-txt" id="ct${i}">${q.q}</span>
+          <button class="btn-cp" onclick="cp('ct${i}',this)">نسخ الكود</button>
+        </div>
+        <div class="qnote">${q.note}</div>
+      </div>
+    `;
+    list.appendChild(d);
+  });
+
+  document.getElementById('emptyState').style.display = 'none';
+  document.getElementById('results').style.display = 'block';
+  setTimeout(() => document.getElementById('results').scrollIntoView({ behavior:'smooth', block:'start' }), 100);
+}
+
+// فتح وإغلاق البطاقات
+function tog(hdr) { 
+  hdr.parentElement.classList.toggle('open'); 
+}
+
+// دالة النسخ المتوافقة مع المتصفحات (بدون استخدام navigator.clipboard)
+function cp(id, btn) {
+  const text = document.getElementById(id).textContent;
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  
+  // إخفاء الـ textarea من العرض
+  textArea.style.position = "fixed";
+  textArea.style.left = "-9999px";
+  textArea.style.top = "0";
+  
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+  
+  try {
+    const successful = document.execCommand('copy');
+    if(successful) {
+      const originalText = btn.textContent;
+      btn.textContent = '✓ تم النسخ';
+      btn.classList.add('ok');
+      setTimeout(() => { 
+        btn.textContent = originalText; 
+        btn.classList.remove('ok'); 
+      }, 2000);
+    }
+  } catch (err) {
+    console.error('فشل في عملية النسخ', err);
+  }
+  
+  document.body.removeChild(textArea);
+}
+
+// تهيئة القيم الأولية
+upd('vLikes', document.getElementById('rLikes').value);
+upd('vRT',    document.getElementById('rRT').value);
+upd('vRep',   document.getElementById('rRep').value);
+</script>
+
 </body>
 </html>
+
