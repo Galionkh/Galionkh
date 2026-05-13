@@ -22,15 +22,15 @@
     }
   </script>
 
-  <!-- React & ReactDOM -->
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <!-- React & ReactDOM (Downgraded to 17 for Recharts UMD compatibility) -->
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
   
-  <!-- Recharts (for charts) -->
+  <!-- Recharts & PropTypes -->
   <script crossorigin src="https://unpkg.com/prop-types/prop-types.min.js"></script>
   <script crossorigin src="https://unpkg.com/recharts@2.1.9/umd/Recharts.min.js"></script>
   
-  <!-- Babel (to compile JSX in browser) -->
+  <!-- Babel -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <style>
@@ -483,8 +483,8 @@
       );
     }
 
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<App />);
+    // React 17 Render Method
+    ReactDOM.render(<App />, document.getElementById('root'));
   </script>
 </body>
 </html>
