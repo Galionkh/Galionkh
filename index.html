@@ -97,3 +97,383 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
     }
+
+    .metric {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.24);
+      border-radius: 8px;
+      padding: 16px;
+      min-height: 94px;
+    }
+
+    .metric b { display: block; font-size: 24px; line-height: 1.2; }
+    .metric span { display: block; margin-top: 7px; color: #d6e4ff; font-size: 13px; }
+
+    section { padding: 34px 0; }
+    h2 { margin: 0 0 16px; font-size: 28px; line-height: 1.2; }
+    h3 { margin: 0 0 10px; font-size: 19px; }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .section-head p { margin: 0; color: var(--muted); max-width: 640px; }
+
+    .grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .panel, .kpi, .page-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
+    }
+
+    .kpi { padding: 16px; }
+    .kpi .label { color: var(--muted); font-size: 13px; }
+    .kpi .value { font-size: 26px; font-weight: 800; margin-top: 8px; }
+    .kpi .delta { font-size: 13px; margin-top: 8px; color: var(--muted); }
+    .up { color: var(--good); }
+    .down { color: var(--danger); }
+
+    .panel { padding: 18px; min-width: 0; }
+    .chart { width: 100%; height: 300px; display: block; }
+    .chart.short { height: 230px; }
+    .legend { display: flex; gap: 14px; flex-wrap: wrap; color: var(--muted); font-size: 13px; margin-top: 10px; }
+    .legend i { width: 10px; height: 10px; display: inline-block; border-radius: 2px; margin-left: 5px; }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+    table { width: 100%; border-collapse: collapse; min-width: 760px; }
+    th, td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: right; }
+    th { background: #f8fafc; font-size: 13px; color: #475569; }
+    td.num { direction: ltr; text-align: left; font-variant-numeric: tabular-nums; }
+    tr.total td { font-weight: 800; color: var(--brand); }
+
+    .analysis-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .analysis-item {
+      border-right: 4px solid var(--brand);
+      background: #fff;
+      border-radius: 8px;
+      padding: 14px 16px;
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .analysis-item p { margin: 0; color: #475569; }
+
+    .pages-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .pages-toolbar input {
+      width: min(360px, 100%);
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      font: inherit;
+    }
+    .pages-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .page-card { overflow: hidden; }
+    .page-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+      color: #334155;
+      font-weight: 700;
+    }
+    .page-card img {
+      width: 100%;
+      display: block;
+      background: #fff;
+    }
+
+    footer { padding: 30px 0 46px; color: var(--muted); font-size: 13px; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .grid-4, .grid-3, .analysis-list, .pages-grid { grid-template-columns: 1fr; }
+      .hero-meta { grid-template-columns: 1fr; }
+      .nav { align-items: flex-start; flex-direction: column; padding: 14px 0; }
+      .section-head { display: block; }
+      .links a { padding: 7px 9px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="shell nav">
+      <div class="brand">מי עירון בע"מ <span>דוח כספי לשנת 2025 | ח.פ. 514207901</span></div>
+      <nav class="links" aria-label="ניווט בדוח">
+        <a href="#summary">תקציר</a>
+        <a href="#charts">גרפים</a>
+        <a href="#tables">טבלאות</a>
+        <a href="#source">כל עמודי המקור</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <h1>דוח כספי 2025</h1>
+          <p>תצוגה מעוצבת של הדוח הכספי המקורי של מי עירון בע"מ, כולל ניתוחים, גרפים וכל עמודי המקור המלאים כדי לשמר את כל הנתונים ללא השמטה.</p>
+        </div>
+        <div class="hero-meta">
+          <div class="metric"><b>827.98 מ׳ ₪</b><span>סך נכסים ליום 31.12.2025</span></div>
+          <div class="metric"><b>257.64 מ׳ ₪</b><span>הון עצמי בסוף שנת 2025</span></div>
+          <div class="metric"><b>147.27 מ׳ ₪</b><span>הכנסות משירותי מים וביוב</span></div>
+          <div class="metric"><b class="down">12.13- מ׳ ₪</b><span>הפסד נקי לפני מסים בשנת 2025</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="summary">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <h2>תקציר מנהלים</h2>
+            <p>המספרים להלן נלקחו מהדוחות הראשיים הסרוקים. כל הנתונים המלאים מופיעים בהמשך כעמודי מקור.</p>
+          </div>
+        </div>
+        <div class="grid-4">
+          <div class="kpi"><div class="label">סך נכסים</div><div class="value">827,978,374</div><div class="delta up">עלייה של 9,042,643 ₪ לעומת 2024</div></div>
+          <div class="kpi"><div class="label">רכוש שוטף</div><div class="value">135,841,083</div><div class="delta down">ירידה של 41,920,934 ₪</div></div>
+          <div class="kpi"><div class="label">רכוש קבוע</div><div class="value">643,918,220</div><div class="delta up">עלייה של 18,218,673 ₪</div></div>
+          <div class="kpi"><div class="label">מזומנים בסוף שנה</div><div class="value">6,311,293</div><div class="delta down">ירידה של 10,431,533 ₪</div></div>
+        </div>
+        <div class="analysis-list">
+          <div class="analysis-item"><h3>המאזן גדל למרות ירידת הנזילות</h3><p>סך הנכסים עלה מ-818.94 מ׳ ₪ ל-827.98 מ׳ ₪, בעיקר לצד גידול ברכוש הקבוע ובהקמה, בעוד הרכוש השוטף ירד.</p></div>
+          <div class="analysis-item"><h3>ההפסד קטן משמעותית</h3><p>ההפסד הנקי לפני מסים ירד מ-24.93 מ׳ ₪ בשנת 2024 ל-12.13 מ׳ ₪ בשנת 2025, שיפור של כ-12.80 מ׳ ₪.</p></div>
+          <div class="analysis-item"><h3>ההשקעות ממשיכות ללחוץ על התזרים</h3><p>מזומנים נטו ששימשו לפעילות השקעה הסתכמו ב-46.10 מ׳ ₪ בשנת 2025, גבוהים מהתזרים מפעילות שוטפת.</p></div>
+          <div class="analysis-item"><h3>ההון העצמי נשחק</h3><p>הון עצמי ירד מ-269.77 מ׳ ₪ ל-257.64 מ׳ ₪, בעיקר עקב ההפסד לתקופה שנזקף ליתרת העודפים.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="charts">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <h2>גרפים וניתוחים</h2>
+            <p>השוואת 2025 מול 2024 לפי סעיפים מרכזיים בדוחות הכספיים.</p>
+          </div>
+        </div>
+        <div class="grid-3">
+          <div class="panel">
+            <h3>מבנה הנכסים</h3>
+            <svg class="chart" id="assetsChart" viewBox="0 0 420 300" role="img" aria-label="גרף מבנה נכסים"></svg>
+            <div class="legend"><span><i style="background:#0f766e"></i>2025</span><span><i style="background:#94a3b8"></i>2024</span></div>
+          </div>
+          <div class="panel">
+            <h3>רווח והפסד</h3>
+            <svg class="chart" id="profitChart" viewBox="0 0 420 300" role="img" aria-label="גרף רווח והפסד"></svg>
+            <div class="legend"><span><i style="background:#1d4ed8"></i>הכנסות</span><span><i style="background:#b42318"></i>הפסד נקי לפני מסים</span></div>
+          </div>
+          <div class="panel">
+            <h3>תזרים מזומנים</h3>
+            <svg class="chart" id="cashChart" viewBox="0 0 420 300" role="img" aria-label="גרף תזרים מזומנים"></svg>
+            <div class="legend"><span><i style="background:#15803d"></i>שוטפת</span><span><i style="background:#b7791f"></i>השקעה</span><span><i style="background:#64748b"></i>מימון</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tables">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <h2>טבלאות נתונים מרכזיות</h2>
+            <p>הטבלאות כאן מרכזות את הדוחות הראשיים. עמודי המקור בהמשך כוללים גם את כל הביאורים והפירוטים הנוספים.</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>סעיף מאזן</th><th>2025</th><th>2024</th><th>שינוי</th></tr></thead>
+            <tbody id="balanceRows"></tbody>
+          </table>
+        </div>
+        <br>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>סעיף רווח כולל / תזרים</th><th>2025</th><th>2024</th><th>שינוי</th></tr></thead>
+            <tbody id="flowRows"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="source">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <h2>כל עמודי הדוח המקורי</h2>
+            <p>כדי לעמוד בדרישה שלא ייחסר אף נתון, כל 28 עמודי ה-PDF המקורי משולבים כאן כתמונות באיכות גבוהה.</p>
+          </div>
+        </div>
+        <div class="pages-toolbar">
+          <strong>28 עמודים מקוריים</strong>
+          <input id="pageFilter" type="search" placeholder="סינון לפי מספר עמוד או כותרת">
+        </div>
+        <div class="pages-grid" id="pagesGrid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">התוצר מבוסס על קובץ ה-PDF הסרוק המקורי. במקרה של אי-התאמה, עמוד המקור המצורף הוא האסמכתא המחייבת.</div>
+  </footer>
+
+  <script>
+    const fmt = new Intl.NumberFormat('he-IL');
+    const money = value => (value < 0 ? `(${fmt.format(Math.abs(value))})` : fmt.format(value));
+    const diff = (a, b) => a - b;
+
+    const balance = [
+      ['מזומנים ושווי מזומנים', 6311293, 16742826],
+      ['פיקדונות מוגבלים בשימוש', 40744441, 34390877],
+      ['צרכנים', 83893299, 113201843],
+      ['חייבים שונים והוצאות מראש', 4866978, 13411297],
+      ['מלאי', 25072, 15174],
+      ['סה"כ רכוש שוטף', 135841083, 177762017, true],
+      ['רכוש קבוע', 643918220, 625699547],
+      ['רכוש קבוע בהקמה', 45706565, 12334271],
+      ['רכוש אחר והוצאות נדחות', 2512506, 3139896],
+      ['סה"כ נכסים', 827978374, 818935731, true],
+      ['סה"כ התחייבויות שוטפות', 89508816, 104529944],
+      ['סה"כ התחייבויות לזמן ארוך', 480834159, 444637203],
+      ['הון עצמי', 257635399, 269768584, true]
+    ];
+
+    const flows = [
+      ['הכנסות משירותי מים וביוב', 147271032, 141987325],
+      ['עלות השירותים', 104490549, 95525815],
+      ['רווח גולמי', 42780483, 46461510, true],
+      ['עלויות גבייה וחובות מסופקים', 66486109, 72520602],
+      ['הוצאות הנהלה וכלליות', 7390551, 6393756],
+      ['הפסד מהפעלה', -31096177, -32452848, true],
+      ['הוצאות מימון נטו', 615317, 746188],
+      ['הפסד נקי לפני מסים', -12133185, -24933335, true],
+      ['מזומנים נטו מפעילות שוטפת', 36031559, 30853966],
+      ['מזומנים נטו ששימשו לפעילות השקעה', -46097761, -42878506],
+      ['מזומנים נטו ששימשו לפעילות מימון', -365331, -6574474],
+      ['יתרת מזומנים ושווי מזומנים לסוף השנה', 6311293, 16742826, true]
+    ];
+
+    function fillTable(id, rows) {
+      const body = document.getElementById(id);
+      body.innerHTML = rows.map(([label, y2025, y2024, total]) => `
+        <tr class="${total ? 'total' : ''}">
+          <td>${label}</td>
+          <td class="num">${money(y2025)}</td>
+          <td class="num">${money(y2024)}</td>
+          <td class="num">${money(diff(y2025, y2024))}</td>
+        </tr>
+      `).join('');
+    }
+
+    function barChart(svgId, labels, s2025, s2024, colors = ['#0f766e', '#94a3b8']) {
+      const svg = document.getElementById(svgId);
+      const max = Math.max(...s2025.map(Math.abs), ...s2024.map(Math.abs));
+      const w = 420, h = 300, top = 30, bottom = 58, right = 30, left = 28;
+      const plotH = h - top - bottom;
+      const groupW = (w - right - left) / labels.length;
+      svg.innerHTML = `<line x1="${left}" y1="${top + plotH}" x2="${w - right}" y2="${top + plotH}" stroke="#d9e2ec"/>`;
+      labels.forEach((label, i) => {
+        const baseX = left + i * groupW + 14;
+        const vals = [s2025[i], s2024[i]];
+        vals.forEach((val, j) => {
+          const bh = Math.max(2, Math.abs(val) / max * (plotH - 22));
+          const x = baseX + j * 25;
+          const y = top + plotH - bh;
+          svg.innerHTML += `<rect x="${x}" y="${y}" width="20" height="${bh}" rx="3" fill="${colors[j]}"/>`;
+        });
+        svg.innerHTML += `<text x="${baseX + 20}" y="${h - 24}" text-anchor="middle" font-size="12" fill="#475569">${label}</text>`;
+      });
+    }
+
+    function signedChart(svgId, labels, values, colors) {
+      const svg = document.getElementById(svgId);
+      const max = Math.max(...values.map(v => Math.abs(v)));
+      const w = 420, h = 300, mid = 152, left = 34, right = 24;
+      const groupW = (w - left - right) / values.length;
+      svg.innerHTML = `<line x1="${left}" y1="${mid}" x2="${w - right}" y2="${mid}" stroke="#94a3b8"/>`;
+      values.forEach((val, i) => {
+        const bh = Math.max(2, Math.abs(val) / max * 105);
+        const x = left + i * groupW + groupW / 2 - 22;
+        const y = val >= 0 ? mid - bh : mid;
+        svg.innerHTML += `<rect x="${x}" y="${y}" width="44" height="${bh}" rx="4" fill="${colors[i]}"/>`;
+        svg.innerHTML += `<text x="${x + 22}" y="${val >= 0 ? y - 8 : y + bh + 18}" text-anchor="middle" font-size="12" fill="#172033">${money(val)}</text>`;
+        svg.innerHTML += `<text x="${x + 22}" y="282" text-anchor="middle" font-size="12" fill="#475569">${labels[i]}</text>`;
+      });
+    }
+
+    function profitChart() {
+      const svg = document.getElementById('profitChart');
+      const labels = ['2024', '2025'];
+      const revenue = [141987325, 147271032];
+      const loss = [-24933335, -12133185];
+      const max = 155000000;
+      const w = 420, h = 300, mid = 206, left = 54;
+      svg.innerHTML = `<line x1="40" y1="${mid}" x2="390" y2="${mid}" stroke="#d9e2ec"/>`;
+      labels.forEach((label, i) => {
+        const x = left + i * 170;
+        const rh = revenue[i] / max * 150;
+        const lh = Math.abs(loss[i]) / max * 150;
+        svg.innerHTML += `<rect x="${x}" y="${mid - rh}" width="42" height="${rh}" rx="4" fill="#1d4ed8"/>`;
+        svg.innerHTML += `<rect x="${x + 58}" y="${mid}" width="42" height="${lh}" rx="4" fill="#b42318"/>`;
+        svg.innerHTML += `<text x="${x + 50}" y="274" text-anchor="middle" font-size="13" fill="#475569">${label}</text>`;
+        svg.innerHTML += `<text x="${x + 21}" y="${mid - rh - 8}" text-anchor="middle" font-size="11" fill="#172033">${Math.round(revenue[i]/1000000)}מ׳</text>`;
+        svg.innerHTML += `<text x="${x + 79}" y="${mid + lh + 18}" text-anchor="middle" font-size="11" fill="#172033">${Math.round(loss[i]/1000000)}מ׳</text>`;
+      });
+    }
+
+    const pageTitles = [
+      'כריכה', 'תוכן עניינים / דוח רואה חשבון', 'דוח רואה חשבון מבקר', 'דוח על המצב הכספי - נכסים',
+      'דוח על המצב הכספי - התחייבויות והון', 'דוח על הרווח הכולל', 'דוח על השינויים בהון העצמי', 'דוח על תזרימי המזומנים',
+      'נספח לתזרים המזומנים', 'ביאורים - כללי', 'ביאורים - פעילות החברה', 'ביאורים - מדיניות חשבונאית',
+      'ביאורים - אומדנים ומדידה', 'ביאור רכוש שוטף', 'ביאורים לרכוש קבוע והוצאות נדחות', 'ביאורים מפורטים',
+      'ביאורי התחייבויות', 'ביאורי הלוואות והכנסות נדחות', 'ביאורים נוספים', 'ביאורי הון עצמי והכנסות',
+      'ביאורי הוצאות', 'ביאורי ספקים ועלויות', 'ביאורים למס ומימון', 'ביאורי צדדים קשורים',
+      'ביאורי שכר וזכאים', 'ביאורים משפטיים ואחרים', 'נספחים כספיים', 'דוח רואה חשבון / אישור'
+    ];
+
+    function renderPages(filter = '') {
+      const grid = document.getElementById('pagesGrid');
+      const needle = filter.trim();
+      grid.innerHTML = pageTitles.map((title, index) => {
+        const page = index + 1;
+        const visible = !needle || String(page).includes(needle) || title.includes(needle);
+        return visible ? `<article class="page-card" data-page="${page}">
+          <div class="page-title"><span>עמוד ${page}</span><span>${title}</span></div>
+          <img src="pages/page-${String(page).padStart(2, '0')}.jpg" alt="עמוד ${page} מתוך הדוח המקורי">
+        </article>` : '';
+      }).join('');
+    }
+
+    fillTable('balanceRows', balance);
+    fillTable('flowRows', flows);
+    barChart('assetsChart', ['שוטף', 'קבוע', 'בהקמה', 'אחר'], [135841083, 643918220, 45706565, 2512506], [177762017, 625699547, 12334271, 3139896]);
+    profitChart();
+    signedChart('cashChart', ['שוטפת', 'השקעה', 'מימון', 'נטו'], [36031559, -46097761, -365331, -10431533], ['#15803d', '#b7791f', '#64748b', '#b42318']);
+    renderPages();
+    document.getElementById('pageFilter').addEventListener('input', event => renderPages(event.target.value));
+  </script>
+</body>
+</html>
